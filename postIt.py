@@ -1,7 +1,6 @@
-import requests, json
+from main import requests, json
 
 url = "https://api.github.com/gists"
-
 
 # Load the JSON configuration file
 with open('config.json', 'r') as file:

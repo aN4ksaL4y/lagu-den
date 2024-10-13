@@ -1,10 +1,13 @@
 import spotipy, sqlite3, json, time, icecream
 from spotipy.oauth2 import SpotifyClientCredentials
-import os
+import os, requests
 
-# Replace these with your Spotify API credentials
-SPOTIPY_CLIENT_ID = "2a552506817c47cb8c21b80d88c9d406"
-SPOTIPY_CLIENT_SECRET = "09b1459c7a784014923af0de39a138d0"
+# Load the JSON configuration file
+with open('config.json', 'r') as file:
+    config = json.load(file)
+
+SPOTIPY_CLIENT_ID = config['spotify_client_id']
+SPOTIPY_CLIENT_SECRET = config['spotify_client_secret']
 
 # Authentication - without user login
 auth_manager = SpotifyClientCredentials(
