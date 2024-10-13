@@ -38,38 +38,38 @@ def get_recently_played(sp):
 
 # Main function
 def main():
-    # while True:
-    try:
-        recent_songs = get_recently_played(sp)
-        songs_data = []
+    while True:
+        try:
+            recent_songs = get_recently_played(sp)
+            songs_data = []
 
-        for item in recent_songs:
-            track = item["track"]
-            song_info = {
-                "song_name": track["name"],
-                "artist_name": ", ".join(
-                    artist["name"] for artist in track["artists"]
-                ),
-                "album_name": track["album"]["name"],
-                "cover_image": (
-                    track["album"]["images"][0]["url"]
-                    if track["album"]["images"]
-                    else None
-                ),
-            }
-            songs_data.append(song_info)
-            print(
-                f"Song: {song_info['song_name']}, Artist: {song_info['artist_name']}, Album: {
-                    song_info['album_name']}, Cover Image: {song_info['cover_image']}"
-            )
+            for item in recent_songs:
+                track = item["track"]
+                song_info = {
+                    "song_name": track["name"],
+                    "artist_name": ", ".join(
+                        artist["name"] for artist in track["artists"]
+                    ),
+                    "album_name": track["album"]["name"],
+                    "cover_image": (
+                        track["album"]["images"][0]["url"]
+                        if track["album"]["images"]
+                        else None
+                    ),
+                }
+                songs_data.append(song_info)
+                print(
+                    f"Song: {song_info['song_name']}, Artist: {song_info['artist_name']}, Album: {
+                        song_info['album_name']}, Cover Image: {song_info['cover_image']}"
+                )
 
-        # Save the collected data to a JSON file
-        save_to_json(songs_data)
-        print("New entries saved!")
+            # Save the collected data to a JSON file
+            save_to_json(songs_data)
+            print("New entries saved!")
 
-        time.sleep(5)
-    except Exception as err:
-            ic(err)
+            time.sleep(5)
+        except Exception as err:
+                ic(err)
 
 
 if __name__ == "__main__":
