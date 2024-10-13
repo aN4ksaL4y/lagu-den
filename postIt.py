@@ -1,9 +1,15 @@
-import requests
+import requests, json
 
 url = "https://api.github.com/gists"
+
+
+# Load the JSON configuration file
+with open('config.json', 'r') as file:
+    config = json.load(file)
+
 headers = {
     "Accept": "application/vnd.github+json",
-    "Authorization": "Bearer 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",
+    "Authorization": f"Bearer {config['ghp']}",
     "X-GitHub-Api-Version": "2022-11-28"
 }
 data = {
