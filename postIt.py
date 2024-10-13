@@ -44,7 +44,7 @@ if __name__=="__main__":
             response.raise_for_status()  # Raise an error for bad responses
 
             if response.status_code == 201:
-                print("Gist created successfully:", response.json())
+                print("Gist created successfully")
             else:
                 print("Failed to create gist:", response.status_code, response.text)
 
