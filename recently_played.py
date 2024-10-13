@@ -67,6 +67,8 @@ def main():
             save_to_json(songs_data)
             print("New entries saved!")
 
+            songs_data = []
+            print(songs_data)
             time.sleep(5)
         except Exception as err:
                 ic(err)
